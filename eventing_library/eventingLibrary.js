@@ -4,12 +4,12 @@
  */
 
 var mixEvents = function(obj) {
-  obj._events = [];
+  obj._events = {};
   obj.on = function(event, callback) {
-
+    obj._events[event] = callback;
   }
-  obj.trigger = function(event) {
-
+  obj.trigger = function(event, args) {
+    obj._events[event].apply(obj, args);
   }
   return obj;
 };
