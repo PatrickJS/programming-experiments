@@ -29,10 +29,10 @@ var obj = {
 mixEvents(obj);
 
 obj.on('ageChange', function(){
-  console.log('Age changed');
+  ++this.age;
+  console.log('Age changed', this.age);
 });
 
-obj.age++;
 obj.trigger('ageChange');
 obj.trigger('ageChange');
 obj.trigger('ageChange');
