@@ -7,6 +7,12 @@
  * of solving the problem using bitwise operators.
  */
 
-var isPowerOfTwo = function(n) {
-
+Number.prototype.isPowerOfTwo = function() {
+  console.log('is power ', this * 1);
+  return true;
 };
+
+
+
+(10).isPowerOfTwo();
+(4).isPowerOfTwo();
