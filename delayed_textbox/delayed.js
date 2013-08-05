@@ -1,4 +1,4 @@
-/**
+/*
  * We have a textbox where we get the info with the following code:
  *
  *   var tb = $(".textbox");
@@ -7,5 +7,21 @@
  * typing in that box. How would you implement it?
  */
 
+$(function() {
+  var api = {};
+  var $textbox = $('#textbox');
+  var $content = $('#textboxContents');
 
-var tb =
+
+  $textbox.on('keyup', function(e) {
+
+    setTimeout(function() {
+      var query = $textbox.val()
+      $content.text(query)
+    }, 600);
+
+    return false;
+  });
+
+
+});
