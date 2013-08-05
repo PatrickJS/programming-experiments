@@ -1,3 +1,4 @@
+
 var bind = function(method, context) {
   return function(args) {
     args = args && [].slice.call(args);
@@ -5,13 +6,17 @@ var bind = function(method, context) {
   };
 };
 
- var alice = {
+;(function() {
+
+  var alice = {
    name: 'alice',
    shout: function(){
      alert(this.name);
    }
- };
- var boundShout = bind(alice.shout, alice);
- boundShout(); // alerts 'alice'
- boundShout = bind(alice.shout, {name: 'bob'});
- boundShout(); // alerts 'bob'
+  };
+  var boundShout = bind(alice.shout, alice);
+  boundShout(); // alerts 'alice'
+  boundShout = bind(alice.shout, {name: 'bob'});
+  boundShout(); // alerts 'bob'
+
+}());

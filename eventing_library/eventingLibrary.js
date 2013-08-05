@@ -36,4 +36,4 @@
   // => Should log 'Age changed'
 
 
-}())
+}());
