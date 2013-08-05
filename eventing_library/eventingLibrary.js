@@ -6,10 +6,15 @@
 var mixEvents = function(obj) {
   obj._events = {};
   obj.on = function(event, callback) {
-    obj._events[event] = callback;
+    if (!obj._events[event]) {
+      obj._events[event] = [];
+    }
+    obj._events[event].push(callback);
   }
   obj.trigger = function(event, args) {
-    obj._events[event].apply(obj, args);
+    for (var i = 0; i < obj._events[event].length; i++) {
+      obj._events[event][i].apply(obj, args);
+    }
   }
   return obj;
 };
@@ -28,6 +33,8 @@ obj.on('ageChange', function(){
 });
 
 obj.age++;
+obj.trigger('ageChange');
+obj.trigger('ageChange');
 obj.trigger('ageChange');
 // => Should log 'Age changed'
 
