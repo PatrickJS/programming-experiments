@@ -1,5 +1,19 @@
+/*
+  An easy way to reverse an array is by building a new array of the same size
+  but in the opposite order. However, this requires as much extra memory as the
+  original array takes up. In-place reversal is a technique that requires no
+  extra space. Write an in-place array reversal algorithm that requires O(1)
+  space.
+*/
 
+var reverseArray = function(arr){
+  var arrLen = arr.length,
+      halfArrLen = arrLen/2,
+      i;
 
-var reverseArray = function(array){
-
+  for (i = 0; i < halfArrLen; i++) {
+    arr[arrLen] = arr[i];
+    arr[i] = arr[arrLen-1];
+  }
+  return arr;
 };
