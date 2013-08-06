@@ -1,4 +1,5 @@
-window.pJS = pJS || {};
+var pJS = window.pJS || {};
+
 ;(function(pjs) {
 
   pjs.mixEvents = function(obj) {

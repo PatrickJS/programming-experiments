@@ -1,12 +1,14 @@
+var pJS = window.pJS || {};
 
-var bind = function(method, context) {
-  return function(args) {
-    args = args && [].slice.call(args);
-    method.apply(context, args);
+;(function(pjs) {
+
+  pjs.bind = function(method, context) {
+
+    return function(args) {
+      args = args && [].slice.call(args);
+      method.apply(context, args);
+    };
   };
-};
-
-;(function() {
 
   var alice = {
    name: 'alice',
@@ -14,9 +16,9 @@ var bind = function(method, context) {
      alert(this.name);
    }
   };
-  var boundShout = bind(alice.shout, alice);
+  var boundShout = pJS.bind(alice.shout, alice);
   boundShout(); // alerts 'alice'
-  boundShout = bind(alice.shout, {name: 'bob'});
+  boundShout = pJS.bind(alice.shout, {name: 'bob'});
   boundShout(); // alerts 'bob'
 
-}());
+}(pJS));
