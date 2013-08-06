@@ -20,7 +20,11 @@ var extend = function(obj, args) {
   args = Array.prototype.slice.call(arguments, 1);
   for (var i = 0; i < args.length; i++) {
     for (var key in args[i]) {
-      obj[key] = args[i][key];
+      if (typeof args[i][key] === 'object') {
+        extend(obj, args[i][key])
+      } else {
+        obj[key] = args[i][key];
+      }
     }
   }
 };
