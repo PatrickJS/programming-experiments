@@ -1,6 +1,7 @@
-;(function() {
+window.pJS = pJS || {};
+;(function(pjs) {
 
-  var mixEvents = function(obj) {
+  pjs.mixEvents = function(obj) {
     obj._events = {};
     obj.on = function(event, callback) {
       if (!obj._events[event]) {
@@ -23,7 +24,7 @@
     age: 30
   };
 
-  mixEvents(obj);
+  obj = pjs.mixEvents(obj);
 
   obj.on('ageChange', function(){
     ++this.age;
@@ -36,4 +37,4 @@
   // => Should log 'Age changed'
 
 
-}());
+}(pJS));
