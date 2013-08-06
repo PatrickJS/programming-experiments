@@ -17,3 +17,27 @@
 var extend = function(obj, args) {
 
 };
+
+
+;(function() {
+  var person = {
+    name: 'Alice',
+    body: 'slim'
+  },
+  arms = {
+    leftArm:  'left-hand',
+    rightArm: {
+      hand: {
+        fingers: 5
+      }
+    }
+  },
+  legs = {
+    leftLeg:  'left-leg',
+    rightLeg: 'right-leg'
+  };
+
+  extend(person, arms, legs);
+  console.log(person);
+
+}());
