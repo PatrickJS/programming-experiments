@@ -8,11 +8,10 @@
  */
 
 Number.prototype.isPowerOfTwo = function() {
-  console.log('is power ', this * 1);
-  return true;
+  return (this !== 0) && ((this & (this - 1)) === 0);
 };
 
 
 
-(10).isPowerOfTwo();
-(4).isPowerOfTwo();
+console.log((10).isPowerOfTwo());
+console.log((4).isPowerOfTwo());

@@ -5,6 +5,18 @@
   extra space. Write an in-place array reversal algorithm that requires O(1)
   space.
 */
+/**
+ * Given an arbitrary input array, write a function that reverses the contents
+ * of the array. Don't use the native Array.prototype.reverse() method.
+ *
+ * Extra Credit: Don't use an extra array.
+ *
+ *
+ * Here's a sample input to get you going:
+ *
+ *   [1, 8, 39, null, 2, 9, 'bob']
+ */
+
 
 var reverseArray = function(arr){
   var arrLen = arr.length,
@@ -17,3 +29,6 @@ var reverseArray = function(arr){
   }
   return arr;
 };
+
+// test
+reverseArray([1, 8, 39, null, 2, 9, 'bob']);
