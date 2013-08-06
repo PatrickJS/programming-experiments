@@ -14,8 +14,15 @@
  */
 
 
-var extend = function(obj, args) {
 
+
+var extend = function(obj, args) {
+  args = Array.prototype.slice.call(arguments, 1);
+  for (var i = 0; i < args.length; i++) {
+    for (var key in args[i]) {
+      obj[key] = args[i][key];
+    }
+  }
 };
 
 
