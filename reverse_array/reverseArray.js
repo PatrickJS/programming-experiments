@@ -19,16 +19,18 @@
 
 
 var reverseArray = function(arr){
-  var arrLen = arr.length,
-      halfArrLen = arrLen/2,
-      i;
+  var arrLen = arr.length - 1;
+  var halfArrLen = arrLen/2;
 
-  for (i = 0; i < halfArrLen; i++) {
-    arr[arrLen] = arr[i];
-    arr[i] = arr[arrLen-1];
+  for (var i = 0; i < halfArrLen; i++) {
+    var temp = arr[i]
+    arr[i] = arr[arrLen - i];
+    arr[arrLen - i] = temp;
   }
   return arr;
 };
 
 // test
-reverseArray([1, 8, 39, null, 2, 9, 'bob']);
+var arr = [1, 8, 39, null, 2, 9, 'bob'];
+console.log(reverseArray(arr));
+console.log('reversed?: ',reverseArray(arr) === arr.reverse());
